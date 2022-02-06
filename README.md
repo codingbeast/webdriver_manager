@@ -43,8 +43,12 @@ Use with Chrome:
 
 ```python
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
+# selenium < 4.0.0
+driver = webdriver.Chrome(ChromeDriverManager().install())
+# selenium >= 4.0.0
+from selenium.webdriver.chrome.service import Service
 driver = webdriver.Chrome(service=Service(executable_path=ChromeDriverManager().install()))
 ```
 
@@ -62,9 +66,12 @@ Use with FireFox:
 
 ```python
 from selenium import webdriver
-from selenium.webdriver.firefox.service import Service
 from webdriver_manager.firefox import GeckoDriverManager
 
+# selenium < 4.0.0
+driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+# selenium >= 4.0.0
+from selenium.webdriver.firefox.service import Service
 driver = webdriver.Firefox(service=Service(executable_path=GeckoDriverManager().install()))
 ```
 
